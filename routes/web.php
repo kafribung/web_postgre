@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
@@ -18,7 +19,17 @@ Route::get('/', function () {
     return redirect('dashboard');
 });
 
-Route::get('dashboard', DashboardController::class)->name('dashboard');
-// Route::get('category', )->name('category');
+Route::middleware('auth')->group(function(){
+    // Dashboard
+    Route::get('dashboard', DashboardController::class)->name('dashboard');
+    // Cateogry
+    Route::group(['name' => 'category', 'prefix' => 'category'], function(){
+        Route::get('', [CategoryController::class, 'index'])->name('category');
+    });
+
+
+});
+
+
 
 require __DIR__.'/auth.php';
