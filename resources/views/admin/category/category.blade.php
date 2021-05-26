@@ -22,10 +22,10 @@
                                 @php
                                     $angkaAwal = 1;
                                 @endphp
-                                @forelse ($categories as $category)
+                                @forelse ($categories as $key => $category)
                                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                                     <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <span class="font-medium">{{ $angkaAwal++ }}</span>
+                                        <span class="font-medium">{{ ($category->currentPage - 1) * $category->perPage + $key + 1 }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-left whitespace-nowrap">
                                         <span class="font-medium">{{ $category->title }}</span>
@@ -54,7 +54,7 @@
                                 @empty
                                     
                                 @endforelse
-                                {{ $categories->onEachSide(1)->links() }}
+                                {{ $categories->links() }}
                             </tbody>
                         </table>
                     </div>

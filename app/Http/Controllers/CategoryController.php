@@ -10,7 +10,7 @@ class CategoryController extends Controller
     {
         $categories = Category::cursorPaginate(2);
         $categories = Category::paginate(2);
-        dd($categories);
+        // dd($categories);
         return view('admin.category.category', compact('categories'));
     }
 
