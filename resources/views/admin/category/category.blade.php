@@ -25,7 +25,8 @@
                                 @forelse ($categories as $key => $category)
                                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                                     <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <span class="font-medium">{{ ($category->currentPage - 1) * $category->perPage + $key + 1 }}</span>
+                                        {{-- <span class="font-medium">{{ $categories->count() * ($categories->currentPage() - 1) + $loop->iteration }}</span> --}}
+                                        <span class="font-medium">{{ ($categories->currentpage()-1) * $categories->perpage() + $key + 1 }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-left whitespace-nowrap">
                                         <span class="font-medium">{{ $category->title }}</span>
