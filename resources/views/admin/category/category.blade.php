@@ -19,12 +19,16 @@
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 text-sm font-light">
+                                @php
+                                    $angkaAwal = 1;
+                                @endphp
+                                @forelse ($categories as $category)
                                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                                     <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <span class="font-medium">1</span>
+                                        <span class="font-medium">{{ $angkaAwal++ }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <span class="font-medium">1</span>
+                                        <span class="font-medium">{{ $category->title }}</span>
                                     </td>
                                     <td class="py-3 px-6 text-center">
                                         <div class="flex item-center justify-center">
@@ -47,6 +51,9 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @empty
+                                    
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

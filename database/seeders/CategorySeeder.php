@@ -19,11 +19,13 @@ class CategorySeeder extends Seeder
             'accesories',
             'laptop',
             'listrik',
-            'rumah tangga'
+            'rumah tangga',
         ]);
 
         $categories->each(function($categori){
-            Categoy::created($categori);
+            Category::create([
+                'title' => $categori
+            ]);
         });
     }
 }
