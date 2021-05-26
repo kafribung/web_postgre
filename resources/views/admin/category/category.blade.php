@@ -54,6 +54,7 @@
                                 @empty
                                     
                                 @endforelse
+                                {{ $categories->onEachSide(1)->links() }}
                             </tbody>
                         </table>
                     </div>

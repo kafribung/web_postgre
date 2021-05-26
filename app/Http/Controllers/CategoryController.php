@@ -8,7 +8,9 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::cursorPaginate(2);
+        $categories = Category::paginate(2);
+        dd($categories);
         return view('admin.category.category', compact('categories'));
     }
 
